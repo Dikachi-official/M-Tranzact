@@ -19,14 +19,14 @@
         </div>
         <form id="contact-form-ajax" method="POST">
         {% csrf_token %}
-        <div class="contact-input-container">
-            <input name="fullname" id="firstname" type="text" placeholder="First Name" />
-            <input name="email" id="email" type="email" placeholder="Your Email" />
-            <input name="phone" id="phone" type="text" placeholder="Your Phone" />
-            <input name="subject" id="sender-subject" type="text" placeholder="Subject" />
-            <input name="message" id="sender-msg" class="input-msg" type="text" placeholder=" Message"/>
-        </div>
-        <button style="cursor:pointer;" type="submit">Send Message</button>
+            <div class="contact-input-container">
+                <input name="fullname" id="firstname" type="text" placeholder="First Name" />
+                <input name="email" id="email" type="email" placeholder="Your Email" />
+                <input name="phone" id="phone" type="text" placeholder="Your Phone" />
+                <input name="subject" id="sender-subject" type="text" placeholder="Subject" />
+                <input name="message" id="sender-msg" class="input-msg" type="text" placeholder=" Message"/>
+            </div>
+            <button style="cursor:pointer;" type="submit">Send Message</button>
         </form>
     </div>
 </div>
