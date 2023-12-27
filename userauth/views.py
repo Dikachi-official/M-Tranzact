@@ -92,40 +92,9 @@ def register_view(request):
             user = form.save(commit=False)
             user.save()
             
-            '''
-            # LETS OMIT THE EMAIL ACTIVATION TO AVOID ERRRORS
-            current_site = get_current_site(request)
-            mail_subject = "Activation link has been sent to your email"
-            message = render_to_string('activate_account.html',{
-                'user':user,
-                'domain':current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token':account_activation_token.make_token(user),
-            })
-            to_email = form.cleaned_data.get('email')
-            email = EmailMessage(mail_subject, message, to=[to_email])
-            email.send()
-            #activateEmail(request, user, form.cleaned_data.get('email'))
-            '''
             messages.success(request, f"Hey {user.username}, your account was created successfully. An OTP was sent to your Email")
             return redirect("userauth:verify-email", username=request.POST['username'])
 
-
-            '''
-            new_user = form.save()
-            # WE USE CLEANED DATA TO FETCH ALL VALUES FROM THE REQUEST
-            firstname = form.cleaned_data['firstname']
-            messages.success(
-                request, f'Hey {firstname}, Your account was created successfully')
-
-            #new_user = authenticate(email=form.cleaned_data['email'], 
-                                    #password=form.cleaned_data['password1'])
-            login(request, new_user)
-
-            #Profile.objects.create(user=request.user)
-
-            return redirect('core:dashboard')
-            '''
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)    
