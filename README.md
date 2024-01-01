@@ -7,14 +7,19 @@ Built with Python & Django framework for the backend. And HTML & CSS for the Fro
 
 <h3>How to Run the Application locally :</h3>
 
-Create and activate virtual env
+To create virtual env:
 
 ```json
 virtualenv venv
+```
+
+To activate virtual env:
+
+```json
 venv\Scripts\activate
 ```
 
-To install all packages
+To install all packages:
 
 ```json
 pip install -r requirements.txt
