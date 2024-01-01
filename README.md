@@ -3,9 +3,9 @@
 <h3>About</h3>
 Built with Python & Django framework for the backend. And HTML & CSS for the Frontend, Where a users can Register and be authenticated to their respective dashboards, complete KYC to be able to perform several transactions like (Deposit, Transfer, Withdraw & Electronic Clearance Services)
 
-<h3>How to Run the Application locally</h3>
-
 ## Backend development workflow
+
+<h3>How to Run the Application locally :</h3>
 
 Create and activate virtual env
 
