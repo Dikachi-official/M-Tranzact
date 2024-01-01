@@ -1,0 +1,35 @@
+{% extends 'partials/base.html' %} {% load static %} {% block content %}
+
+<div class="main-sec-as1">
+  <div class="ecs-parent">
+    <strong>ELECTRONIC CLEARANCE SERVICE</strong>
+    {% include 'partials/messages.html' %}
+    <table>
+      <tr>
+        <td>
+          <div id="page_name" style="float: left">
+            <font color="#3399ff">User account</font>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+    <form name="set_up_ecs" action="{% url 'account:ecs' %}" method="POST">
+      {% csrf_token %}
+      <p>Recipient:</p>
+      <input name="name" /> <br />
+      <br />
+      <p>Account No :</p>
+      <input name="accno" /> <br />
+      <br />
+      <p>Amount:</p>
+      <input name="upper_limit" /> <br />
+      <br />
+      <button class="edit_ecs_button" type="submit">Start ECS</button>
+    </form>
+    {{ msg }}
+    <div></div>
+  </div>
+</div>
+
+{% endblock content %}

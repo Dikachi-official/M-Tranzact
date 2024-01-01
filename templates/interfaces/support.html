@@ -1,0 +1,70 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<div class="main-sec-as1">
+    <div class="contact-container">
+        {% if messages %}
+        {% include 'partials/messages.html' %}
+        {% endif %}
+        <div class="contact-header">
+        <h1 style="font-weight:900; font-size:20px;">Help Desk</h1>
+        <p class="small-msg">
+            <strong>
+            <small>
+                Your email address will not be published, Required fields are marked
+            </small>
+            </strong>
+        </p>
+        </div>
+        <form id="contact-form-ajax" method="POST">
+        {% csrf_token %}
+        <div class="contact-input-container">
+            <input name="fullname" id="firstname" type="text" placeholder="First Name" />
+            <input name="email" id="email" type="email" placeholder="Your Email" />
+            <input name="phone" id="phone" type="text" placeholder="Your Phone" />
+            <input name="subject" id="sender-subject" type="text" placeholder="Subject" />
+            <input name="message" id="sender-msg" class="input-msg" type="text" placeholder=" Message"/>
+        </div>
+        <button style="cursor:pointer;" type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+{% else %}
+<div class="main-sec-as1">
+    <div class="contact-container">
+        {% if messages %}
+        {% include 'partials/messages.html' %}
+        {% endif %}
+        <div class="contact-header">
+        <h1 style="font-weight:900; font-size:20px;">Help Desk</h1>
+        <p class="small-msg">
+            <strong>
+            <small>
+                Your email address will not be published, Required fields are marked
+            </small>
+            </strong>
+        </p>
+        </div>
+
+
+        <form id="contact-form-ajax" method="POST">
+        {% csrf_token %}
+        <div class="contact-input-container">
+            <input name="fullname" id="firstname" type="text" placeholder="First Name" />
+            <input name="email" id="email" type="email" placeholder="Your Email" />
+            <input name="phone" id="phone" type="text" placeholder="Your Phone" />
+            <input name="subject" id="sender-subject" type="text" placeholder="Subject" />
+            <input name="message" id="sender-msg" class="input-msg" type="text" placeholder=" Message"/>
+        </div>
+        <button style="cursor:pointer;" type="submit">Send Message</button>
+        </form>
+
+        <br/>
+        <small style="font-weight:900; float:right;"><i>Kindly Register with us</i></small>
+        <br/>
+    </div>
+</div>
+
+{% endif %}
+{% endblock content %}

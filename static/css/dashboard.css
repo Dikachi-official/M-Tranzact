@@ -1,0 +1,516 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: poppins, sans-serif;
+}
+body{
+    height:100%;
+    width:100%;
+}
+
+
+/*-==== TOP NAVIGATION ====-*/
+.nav-item1{
+    width:100%;
+    height:70px;
+    background:rgb(237, 229, 229);
+    color:grey;
+    padding:3px 20px;
+    display:flex;
+    flex-direction:row;
+}
+
+.logoz{
+    display:flex;
+    flex-direction:row;
+}
+
+.logoz img{
+    width:30px;
+    height:30px;
+    gap:20px;
+}
+.sub-menu-1{
+    display:none;
+    }   
+.logoz ul li:hover .sub-menu-1{
+    display:block;
+    position:relative;
+    background:white;
+    margin-top:-5px;
+} 
+
+/*-==== END OF TOP NAVIGATION ====-*/
+
+
+
+/*-==== SECTION BELOW TOP NAVIGATION ====-*/
+.full-cont-body{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+}
+
+
+
+
+/*--==== BEHIND MAIN SECTION ====--*/
+.cont-parent .cutter{
+    width:100%;
+    height:70px;
+    background:grey;
+    z-index:0.3;
+    position:absolute;
+}
+
+
+/*--==== END OF BEHIND MAIN SECTION ====--*/
+
+
+
+
+/*-==== LEFT SECTION NAVIGATION ====-*/
+.nav-item ul li{
+    list-style-type: none;
+    text-decoration: none;
+    padding:5px;
+    margin:5px;
+    margin-top:40px;
+    border-bottom:10px solid rgb(255, 98, 0);
+    border-radius:4px 4px;
+}
+
+.nav-item ul{
+    height:100%;
+    padding:5px;
+    margin:5px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+
+}
+
+
+.nav-item{
+    width:18%;
+    background:#24262b;
+    color:white;
+    left:0;
+    text-align:center;
+    z-index:1;
+
+}
+ 
+.main-section{
+    width:82%; 
+    padding:20px 10px;
+    display:flex;
+    flex-direction: row;
+    gap:2%;
+    background: rgb(244, 207, 213);
+}
+
+.main-section section{
+    width:40%;
+    padding:5px;
+    background:white;
+    border-radius:10px;
+    z-index:1;
+    border:2px solid grey;
+}
+.main-section section .saved-profile{
+    padding:3px;
+    
+}
+.main-sec-child{
+    width:100%;
+    padding:5px;
+    border-radius:10px;
+    background:white;
+    z-index:1;
+    border:2px solid grey;
+}
+
+.main-sec-child .wide-sec-head{
+    padding:5px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.main-sec-child .wide-sec-head a{
+    color:white;
+    background:rgb(227, 103, 27);
+    padding:10px;
+    cursor:pointer;
+    box-shadow:;
+    text-decoration: none;
+    border-radius:4px;
+}
+.main-sec-child .wide-sec-head a:hover{
+    background:rgb(92, 38, 5);
+}
+.main-sec-child .wide-sec-img{
+    display:flex; 
+    flex-direction:row;
+    background:rgb(237, 230, 226);
+    align-items:flex-start;
+    padding:10px;
+    margin:10px 0;
+
+}
+.main-sec-child .wide-sec-form{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:space-around;
+}
+.main-sec-child .wide-sec-form .wide-div{
+    width:46%;
+}
+
+.main-sec-child .wide-sec-form input{
+    height: 35px;
+    width:100%;
+    background:rgb(241, 237, 237);
+    border:0.8px solid black;
+}
+
+.main-sec-child .wide-sec-form button{
+    padding:5px;
+    color:white;
+    background:rgb(227, 103, 27);
+    width:80%;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+.main-sec-child .wide-sec-form button:hover{
+    background:rgb(92, 38, 5);
+}
+
+
+/*--===  SEARCH BAR STYLING  ===--*/
+/*--===  SEARCH BAR STYLING  ===--*/
+/*--===  SEARCH BAR STYLING  ===--*/
+/*-- ==== SERACH BAR ==== --*/
+
+    .search-container{
+        text-align: center;
+        align-self: center;
+        align-items:center;
+        width:70%;
+        margin:5px auto;
+        justify-content:center;
+    }
+    
+    .search-bar{
+        text-align:center;
+        align-items:center;
+        width:50%;
+        border-radius:40px;
+        border:2px solid grey;
+        padding:5px;
+        margin:auto;
+    
+    }
+    
+    .search-bar input{
+        background:none;
+        border:none;
+        align-items: center;
+        justify-content: center;
+        width:80%;
+        height:25px;
+        font-size:13px;
+        color:black;
+        padding:4px 0;
+
+    }
+    .search-bar input:hover{
+        border:none;
+    }
+    
+    ::placeholder{
+        color:black;
+    }
+    
+    .search-bar button img{
+        text-align:center;
+        width:25px;
+        height:25px;
+        object-fit:cover;
+    }
+    
+    
+    .search-bar button{  
+        width:27px;
+        height:28px;
+        color:grey;
+        border:none;
+        margin-bottom:0px;
+        cursor:pointer;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .nav-item1{
+            width:100%;
+            height:50px;
+            padding:3px 10px;
+        }
+        .search-bar{
+            text-align:center;
+            align-items:center;
+            width:65%;
+            border-radius:40px;
+            border:2px solid grey;
+            padding:5px;
+            margin:7px auto;
+        
+        }
+        
+        .search-bar input{
+            border:none;
+            align-items: center;
+            justify-content: center;
+            width:75%;
+            height:25px;
+            font-size:13px;
+            color:black;
+            padding:4px;
+
+        }
+        .nav-item1{
+            width:100%;
+            height:70px;
+            background:rgb(237, 229, 229);
+            color:grey;
+            padding:3px 20px;
+        }
+
+    }
+
+    @media only screen and (max-width: 800px) {
+        .nav-item1{
+            width:100%;
+            height:60px;
+            padding:3px 10px;
+        } 
+        .search-bar{
+            text-align:center;
+            align-items:center;
+            width:65%;
+            border-radius:40px;
+            border:2px solid grey;
+            padding:5px;
+            margin:3px auto;
+        
+        }
+        
+        .search-bar input{
+            background:white;
+            border:none;
+            align-items: center;
+            justify-content: center;
+            width:75%;
+            height:25px;
+            font-size:13px;
+            color:black;
+            padding:4px;
+
+        }
+        .search-bar input:hover{
+            border:none;
+        }
+        .search-bar button{  
+            width:17%;
+            height:auto;
+            color:grey;
+            border:none;
+            margin-bottom:0px;
+            cursor:pointer;
+            font-size:12px;
+        }
+        .main-section{
+            flex-wrap:wrap;
+            height:100%;
+            
+        }
+        .main-section section{
+            margin:5px auto;
+            z-index:7;
+            width:60%;
+        }
+        .main-section .main-sec-child{
+            height:100%;
+
+        }
+        .main-sec-child .wide-sec-form .wide-div{
+            width:45%;
+        }
+        
+        .main-sec-child .wide-sec-form input{
+            height: 25px;
+            width:100%;
+        }
+        
+    }
+
+    @media only screen and (max-width: 600px) {
+        .search-bar{
+            text-align:center;
+            align-items:center;
+            width:70%;
+            border-radius:40px;
+            border:2px solid grey;
+            padding:3px;
+            margin:auto;
+        
+        }
+        
+        .search-bar input{
+            background:white;
+            border:none;
+            align-items: center;
+            justify-content: center;
+            width:70%;
+            height:25px;
+            font-size:13px;
+            color:black;
+            padding:4px;
+
+        }
+
+        .search-bar input:hover{
+            border:none;
+        }
+
+        .search-bar button{  
+            width:20%;
+            height:auto;
+            color:grey;
+            border:none;
+            margin-bottom:0px;
+            cursor:pointer;
+            font-size:12px;
+        }
+
+        .main-section{
+            left:25.4%;  
+            padding:20px 10px;
+            display:flex;
+            flex-direction: row;
+            gap:10px;
+        }
+
+        .main-section section{
+            margin:5px auto;
+            z-index:7;
+            width:70%;
+        }
+        .cont-parent .cutter{
+            z-index:1;
+        }
+
+        .nav-item,
+        .main-section section,
+        .main-sec-child{
+            z-index:2;
+        }
+        .main-sec-child .wide-sec-head a{
+            font-size:12px;
+            padding:4px;
+        }
+        
+    }
+
+    @media only screen and (max-width: 500px) {
+        *{
+            font-size:13px;
+        }
+        .search-bar{
+            text-align:center;
+            align-items:center;
+            width:90%;
+            border-radius:40px;
+            border:2px solid grey;
+            padding:2px;
+            margin:auto;
+        
+        }
+        
+        .search-bar input{
+            background:white;
+            border:none;
+            align-items: center;
+            justify-content: center;
+            width:70%;
+            height:25px;
+            font-size:13px;
+            color:black;
+            padding:4px;
+
+        }
+        .search-bar input:hover{
+            border:none;
+        }
+        .search-bar button{  
+            width:20%;
+            height:auto;
+            color:grey;
+            border:none;
+            margin-bottom:0px;
+            cursor:pointer;
+            font-size:12px;
+        }
+        .main-section section{
+            width:85%;
+            z-index:7;
+        }
+        .main-sec-child .wide-sec-head a{
+            font-size:10.5px;
+            padding:4px;
+        }
+        .main-sec-child .wide-sec-form .wide-div{
+            width:75%;
+        }
+        .nav-item{
+            width:25%;
+        }
+        .main-section{
+            width:75%;
+        }
+
+    }
+    @media only screen and (max-width: 395px) {
+        .search-bar{
+            text-align:center;
+            align-items:center;
+            width:90%;
+            border-radius:40px;
+            border:2px solid grey;
+            padding:3px;
+            margin:auto;
+        
+        }
+        .main-section section{
+            width:95%;
+            font-size:10px;
+        }
+        .main-sec-child .wide-sec-head a{
+            font-size:9px;
+            padding:2px;
+        }
+        .main-sec-child .wide-sec-form .wide-div{
+            width:85%;
+            font-size:10px;
+        }
+        .main-sec-child .wide-sec-form .wide-div label{
+            font-size:10px;
+        }
+    }    
+
+/*--===  END OF SEARCH BAR STYLING  ===--*/
+/*--===  END OF SEARCH BAR STYLING  ===--*/
+/*--===  END OF SEARCH BAR STYLING  ===--*/

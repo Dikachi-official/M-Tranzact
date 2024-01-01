@@ -1,0 +1,51 @@
+{% extends 'partials/base-home.html' %} {% load static %} {% block content %}
+<div class="back-placement">
+  <div class="top-top">
+    <img style="border-radius:50%;"src="{% static 'img/myke.jpg' %}">
+    <div class="top-ul">
+      <ul>
+        <li><a href="{% url 'core:home' %}">Home</a></li>
+        <li><a href="{% url 'userauth:signin' %}">Login</a></li>
+        <li><a href="">Services</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="back-placement-child">
+    <h2>Welcome to Myke-Fintech</h2>
+    <small
+      >Dont have an account? <a href="{% url 'userauth:signup' %}">Register</a>
+    </small>
+
+    <div>
+      {% include "partials/messages.html" %}
+      <!--=== ERROR MESSAGE DISPLAY ===-->
+    </div>
+
+    <form action="{% url 'userauth:signin' %}" method="POST">
+      {% csrf_token %}
+      <div class="bp-gchild">
+        <label style="float: left; padding-left: 10%">Email</label>
+        <br />
+        <input id="email" name="email" placeholder="Input Email required" />
+      </div>
+
+      <div class="bp-gchild">
+        <label style="float: left; padding-left: 10%">Password</label>
+        <br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password required"
+        />
+      </div>
+
+      <div class="login-forgot">
+        <a href="{% url 'password_reset' %}">Forgot Password?</a>
+      </div>  
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

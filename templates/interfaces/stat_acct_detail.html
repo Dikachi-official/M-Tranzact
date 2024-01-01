@@ -1,0 +1,41 @@
+{% extends 'partials/base.html' %} {% load static %} {% block content %}
+<div class="stat_acct_cont">
+  <h3>Statment of account for {{user_kyc.full_name}}</h3>
+  <hr />
+  {% if transaction or received_transactions %}
+  <div class="cont-table-sect">
+    <p>Transaction detail for {{request.user}}</p>
+    <div class="table-sect">
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>from</th>
+            <th>Recipient</th>
+            <th>Action</th>
+            <th>Amount</th>
+            <th>description</th>
+            <th>date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{transaction.id|truncatechars:11}}</td>
+            <td>{{transaction.user.username}}</td>
+            <td>{{transaction.receiver}}</td>
+            <td>{{transaction.transfer_type}}</td>
+            <td>&#x20A6;{{transaction.amount|truncatechars:15}}</td>
+            <td>{{transaction.description}}</td>
+            <td>{{transaction.date|truncatechars:11}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="table-sect">
+      <p>Nothing to show</p>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}

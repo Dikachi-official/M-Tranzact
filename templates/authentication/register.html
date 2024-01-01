@@ -1,0 +1,73 @@
+{% extends 'partials/base-home.html' %} 
+{% load static %}
+{% block content %}
+<div class="back-placement">
+  <div class="top-top">
+    <img style="border-radius:50%;"src="{% static 'img/myke.jpg' %}">
+    <div class="top-ul">
+      <ul>
+        <li><a href="{% url 'core:home' %}">Home</a></li>
+        <li><a href="{% url 'userauth:signin' %}">Login</a></li>
+        <li><a href="">Services</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="back-placement-child">
+    <h2>Welcome to Myke-Fintech</h2>
+    <small
+      >Already have an account?<a href="{% url 'userauth:signin' %}"> login</a>
+    </small>
+
+    <div>
+      {% include "partials/messages.html" %}
+      <!--=== ERROR MESSAGE DISPLAY ===-->
+      {% if form.errors %}
+      <div class="errors">
+        <strong>{{form.errors}}</strong>
+      </div>
+      {% endif %}
+    </div>
+
+    <form action="{% url 'userauth:signup' %}" method="POST">
+      {% csrf_token %}
+      <div class="bp-gchild">
+        <label style="float: left; padding-left: 10%">Username</label>
+        <br />
+        {{ form.username }}
+      </div>
+
+      <div class="bp-gchild">
+        <label style="float: left; padding-left: 10%">Firstname</label>
+        <br />
+        {{ form.firstname }}
+      </div>
+
+      <div class="bp-gchild">
+        <label style="float: left; padding-left: 10%">Lastname</label>
+        <br />
+        {{ form.lastname }}
+      </div>
+
+      <div class="bp-gchild">
+        <label style="float: left; padding-left: 10%">Email</label>
+        <br />
+        {{ form.email }}
+      </div>
+
+      <div class="bp-gchild">
+        <label style="float: left; padding-left: 10%">Password</label>
+        <br />
+        {{ form.password1 }}
+      </div>
+
+      <div class="bp-gchild">
+        <label style="float: left; padding-left: 10%"> Confirm Password</label>
+        <br />
+        {{ form.password2 }}
+      </div>
+
+      <button type="submit">Sign up</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

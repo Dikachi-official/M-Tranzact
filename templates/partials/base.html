@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FinTech Site</title>
+        <link href="{% static 'css/base.css' %}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
+            rel="stylesheet"> 
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+    <body>
+
+
+        <!--==== NAVIGATION SECTION ====-->
+        <!---===== DASHBOARD NAV BAR =====-->
+
+        <header class="big-head">
+            <nav class="nav-item1">
+                <a href="{% url 'core:home' %}"><img style="width:35px; height:35px; border-radius:50%;" src="{% static 'img/myke.jpg' %}" /></a>
+                <div class="search-container">
+                    <form action="" class="search-bar">
+                        <input type="text"placeholder="Search Items..." name="search">
+                        <button type="submit">
+                            <ion-icon style="color:black; height:15px; width:15px;" name="search"></ion-icon>
+                        </button>
+                    </form>              
+                </div>
+                <div class="logoz">
+                    <!--===<ion-icon name="notifications-sharp">===-->
+                    <div class="notinoti" >
+                        <div>
+                            <img src="{% static 'img/notification-btn2.png' %}"/><span class="noti-number" id="notification-badge">0</span>
+                        </div>
+                            <div class="sub-menu-2">
+                                <div class="detayl2" id="notifications-dropdown">
+                                    {% for i in notifications %}
+		                            <p class='dropdown-item'>{{i.message}}</p>
+                                    <hr class='dropdown-divider'>
+		                            {% endfor %}
+                                </div> 
+                            </div>    
+                    </div>
+                    <ul>
+                        <li>
+                            {% if user_kyc.user == request.user %}
+                            <img style="border-radius:50%; object-fit:cover;" src="{{user_kyc.image.url}}"/>
+                            {% else %}
+                            <img style="border-radius:50%;" src="{% static 'img/dummy-profile-icon.jpg' %}"/>
+                            {% endif %}
+                            <div class="sub-menu-1">
+                                <div class="submenu-child-cont">
+                                    {% if user_kyc.user == request.user %}
+                                    <div class="detayl1">
+                                        <img style="border-radius:50%; object-fit:cover;" src="{{user_kyc.image.url}}"/>
+                                    </div>
+                                    
+                                    <div class="detayl2">
+                                        <p>User: {{request.user|capfirst}}</p>
+                                        <p>Account No: {{user_acct.account_number}}</p>
+                                        <p>Pin No : {{user_acct.pin_number}}</p>
+                                    </div> 
+                                    {% else %}
+                                    <div class="detayl1">
+                                        <img style="border-radius:50%;" src="{% static 'img/dummy-profile-icon.jpg' %}"/>
+                                    </div>
+                                    <div class="detayl2">
+                                        <p><strong>{{request.user}}</strong></p>
+                                        <p><small>Account No</small></p>
+                                        <small>Register Kyc</small>
+                                        <br/>
+                                        <small>Pin No : Kyc needed</small>
+                                    </div> 
+                                    {% endif %}   
+                                </div>  
+                                <div style="background:rgb(227, 103, 27); height:5px; width:80%; border-right-radius:2px;"></div>
+                                <div class="submenu-child-cont2">
+                                    <a href="{% url 'core:settings' %}">Settings</a>
+                                    <a href="{% url 'userauth:signout' %}">Logout</a>
+                                </div>      
+                            </div>
+                        </li>
+                    </ul>            
+                </div> 
+            </nav>
+        </header>
+
+
+        <div class="cont-parent">
+            <div class="cutter">
+            </div>
+
+
+            <!--=== SECTION BELOW TOP NAVBAR ===-->
+            <div class="full-cont-body">
+
+                <!--=== LEFT SECTION BELOW TOP NAVBAR ===-->
+                <div class="nav-item">
+                    <ul>
+                        <li><a style="text-decoration:none;color:white;" href="{% url 'core:dashboard' %}">Dashboard</a></li>
+                        <li><a style="text-decoration:none;color:white;" href="{% url 'core:balance' %}">Balance</li>
+                        <li><a style="text-decoration:none;color:white;" href="{% url 'core:transfer1' %}">Transfer</a></li>
+                        <li><a style="text-decoration:none;color:white;" href="{% url 'core:deposit' %}">Deposit</a></li>
+                        <li><a style="text-decoration:none;color:white;" href="{% url 'core:withdraw' %}">Withdraw</a></li>
+                        <li><a style="text-decoration:none;color:white;" href="{% url 'account:ecs' %}">ECS</a></li>
+                        <li><a style="text-decoration:none;color:white;" href="{% url 'account:bills' %}">Bills</a></li>
+                        <li><a style="text-decoration:none;color:white;" href="{% url 'core:support' %}">Support</a></li>
+                        <li><a style="text-decoration:none;color:white;" href="{% url 'core:home' %}">Quit</a></li>
+                    </ul>
+                </div>
+
+                <!--==== RIGHT INFO SECTION ====-->
+                <div class="main-section">
+                    {% block content %}
+
+                    <!--===== INNER SECTION PLACEMENT =====-->
+
+                    {% endblock content %}
+                </div>    
+
+            </div>
+        
+        </div>
+            
+
+        <!--=== CDN LINK FOR JAVAVSCRIPT CHART ===-->
+        <script src="{% static 'js/script.js' %}"></script>    
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const labels = [
+                '{{transact.user}},1,2,3'
+            ];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                label: '{{user_kyc.user}} transactions',
+                backgroundColor: 'rgb(92, 38, 5)',
+                borderColor: 'black',
+                data:'{{transact.amount}},1,2,3,4',
+                }]
+            };
+
+            const config = {
+                type: 'doughnut',
+                data: data,
+                options: {}
+            };
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+
+        </script>
+        <!--===  END OF LINK FOR JAVAVSCRIPT CHART ===-->
+
+
+        <!--==== AUTO POPUP JAVASCRIPT ====-->
+        <!--==== AUTO POPUP JAVASCRIPT ====-->
+        <script>
+            const popup = document.querySelector('.popup');
+            const x = document.querySelector('.popup-content h1')
+    
+            window.addEventListener('load', () => {
+                popup.classList.add('showPopup');
+                popup.childNodes[1].classList.add('showPopup');
+            })
+            x.addEventListener('click', () => {
+                popup.classList.remove('showPopup');
+                popup.childNodes[1].classList.remove('showPopup');
+            })
+        </script>
+        <!--==== END AUTO POPUP JAVASCRIPT ====-->
+        <!--==== END AUTO POPUP JAVASCRIPT ====-->
+
+
+        <script>
+            function toggle() {
+                var blur = document.getElementById("blur");
+                blur.classList.toggle("active");
+                var popup = document.getElementById("pin-confirmation-modal");
+                popup.classList.toggle("active");
+            }
+
+
+        </script>   
+        
+        
+
+        <!---=== JS FOR NOTIFICATION ====-->
+
+        {{ room_name|json_script:"room-name" }}
+        <script>
+            const roomName = JSON.parse(document.getElementById('room-name').textContent);
+
+            const notificationSocket = new WebSocket(
+                'ws://'
+                + window.location.host
+                + '/ws/notification/'
+                + roomName
+                + '/'
+            );
+
+            notificationSocket.onmessage = function(e) {
+                const data = JSON.parse(e.data);
+                //document.querySelector('#chat-log').value += (data.message + '\n');
+                console.log(data);
+                document.getElementById("notifications-dropdown").innerHTML = "<p class='dropdown-item'>" + data + "</p><hr class='dropdown-divider'>" + document.getElementById("notifications-dropdown").innerHTML;
+                document.getElementById("notification-badge").innerHTML = parseInt(document.getElementById("notification-badge").innerHTML) + 1;
+            };
+
+            notificationSocket.onclose = function(e) {
+                console.error('Chat socket closed unexpectedly');
+            };
+
+        
+
+        
+        </script>
+
+        <!---=== END OF JS FOR NOTIFICATION ====-->
+
+
+
+
+
+
+
+
+        <!---===== CDN LINK FOR ION ICON =====-->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+
+    </body>
+    
+</html>    

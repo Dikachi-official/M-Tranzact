@@ -1,0 +1,137 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+    <!--==== BALANCE SECTION =====-->
+
+
+
+    <!--==== ATM CARD SECTION ====-->
+    <div class="atm-card-main-cont" style="width:100%;">
+
+        <div class="atm-main-section">
+            <div class="atm-card-container">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="front">
+                            <img src="{% static 'img/map.png' %}" alt="map" class="map-img"/>
+                            <div class="trroww"/>
+                                <p><strong>DEBIT</strong></p>
+                                <img src="{% static 'img/visa.png' %}" alt="visa" width="60px"/>    
+                            </div>            
+                            <div class="trroww card-no">
+                                <p>5244</p>
+                                <p>2878</p>
+                                <p>5637</p>
+                                <P>6253</P>
+                            </div>
+                            <div>
+                                <img class="card-chip" src="{% static 'img/chip.png' %}" alt="visa" width="60px"/>
+                            </div>
+                            <div class="card-holder">
+                                <p>CARD HOLDER</p>
+                                <p>VALID TILL</p>
+                            </div>
+                            <div class="trroww name">
+                                <p>{{user_kyc.full_name}}</p>
+                                <p><strong>Balance:</strong>&#x20A6;{{user_acct.account_balance}}</p>
+                                <p>{{card_owner.month}} / {{card_owner.year}}</p>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <img src="{% static 'img/map.png' %}" class="map-img" alt="map"/>
+                            <div class="bar"></div>
+                            <div class="trroww card-cvv">
+                                <div>
+                                    <img src="{% static 'img/pattern.png' %}" alt="image"/>
+                                </div>
+                                <p>{{card_owner.cvv}}</p>
+                            </div>
+                            <div class="trroww card-text">
+                                <p>Product of Tencas fintech</p>
+                            </div>    
+                            <div class="trroww signature">
+                                <p>CUSTOMER SIGNTAURE</p>
+                                <img src="{% static 'img/visa.png' %}" width="60px" alt="visa"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="balance-call">
+                    <p><strong>Account Balance:</strong>&#x20A6;{{user_acct.account_balance}}</p>
+                </div>    
+            </div>
+        </div>
+
+
+
+        <!--===== SECTION BELOW CARD =====-->
+        <div class="parent-section1">
+            <div class="line-after"></div>
+
+
+
+
+            <div class="parent-section2">
+                <div class="trans-detail">
+                    <h2 style="color:black;">Transactions</h2>
+                    <small>Updates every minute</small>
+
+
+                    <div class="hyperlink-child">
+                        <a href="{% url 'account:statements' %}">
+                            Reveal Account statement
+                        </a>
+                    </div>
+
+                    <div class="table-sec">
+                        <table>
+                            <thead>
+                                <tr>  
+                                     
+                                    <th>Name/Business</th>
+                                    <th>Action</th>
+                                    <th>Status</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            {% for transaction in transactions  %}
+                            {% if forloop.counter < 15 %}
+                            <tbody>
+                                <tr>
+                                    <td>{{transaction.sender}}</td>
+                                    <td>{{transaction.transfer_type}}</td>
+                                    <td>{{transaction.status}}</td>
+                                    <td>&#x20A6;{{transaction.amount}}</td>
+                                </tr>   
+                            </tbody>
+                            {% endif %}
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+                <div class="chart-sec">
+                    <h2 style="color:black; margin:5px 0;">Payment Analytics</h2>
+                    <p>Chart Placement</p>
+                    <!--=== CHART SECTION ===-->
+                    <div class="chart-container">
+                        <div>
+                        <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+
+        </div>
+
+
+
+        <!--==== ENDING OF ATM CARD SECTION ====-->
+
+
+
+
+        <!--==== END OF BALANCE SECTION =====-->
+
+    </div>
+{% endblock content %}

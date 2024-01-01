@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>base</title>
+    <link rel="stylesheet" href="{% static 'css/base-home.css' %}" />
+  </head>
+  <body>
+    <header>
+        <div class="important-notice">
+            <p style="color: rgb(224, 141, 25)">
+                <strong>Important Notice: </strong>
+            </p>
+            <p>
+                <small>
+                    Please be careful of fradulent parties posing as Mykes Bank or its
+                    affliates. Do not disclose your personal information and financial
+                    details to anyone online or anywhere else
+                </small>
+            </p>
+        </div>
+    </header>  
+    <div>
+        {% block content %}
+
+
+        <!--===== INNER SECTION PLACEMENT =====-->
+
+
+        {% endblock content%}
+    </div>    
+    <!--==== FOOTER SECTION ====-->
+    <!--==== FOOTER SECTION ====-->
+
+    <footer class="footer">
+        <div class="footercontainer">
+          <div class="row">
+            <div class="footer-col">
+              <h4>Backend Tools</h4>
+              <ul>
+                <li><a href="#">Python</a></li>
+                <li><a href="#">Django</a></li>
+                <li><a href="#">DRF</a></li>
+                <li><a href="#">Postgres</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Frontend Tools</h4>
+              <ul>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JS</a></li>
+                <li><a href="#">BOOTSTRAP</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Projects</h4>
+              <ul>
+                <li><a href="#">Ecommerce</a></li>
+                <li><a href="#">Blog Site</a></li>
+                <li><a href="#">Crypto NFT Site</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>About Me</h4>
+              <div class="social-links">
+                <a href="#">github icon</a>
+                <a href="#">Gmail icon</a>
+                <a href="#">LinkedIn icon</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line"></div>
+      </footer>
+  
+      <!--==== END OF FOOTER SECTION ====-->
+      <!--==== END OF FOOTER SECTION ====-->
+      <!--==== END OF FOOTER SECTION ====-->
+      <!--==== END OF FOOTER SECTION ====-->
+    </body>
+</html>    

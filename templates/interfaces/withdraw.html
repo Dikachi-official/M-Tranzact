@@ -1,0 +1,48 @@
+{% extends 'partials/base.html' %} {% load static %} {% block content %}
+
+<div class="ultimate-cont">
+  <div class="step1-parent">
+    <h3 style="font-weight: 800">Withdraw</h3>
+    <hr />
+    <div class="steppp">
+      <div>
+        {% include "partials/messages.html" %}
+        <!--=== ERROR MESSAGE DISPLAY ===-->
+        {% if form.errors %}
+        <div class="errors">
+          <strong>{{form.errors}}</strong>
+        </div>
+        {% endif %}
+      </div>
+      <form action="{% url 'core:withdraw' %}" method="POST">
+        {% csrf_token %}
+        <p>Your Account number</p>
+        <input type="text" name="acct_no"
+          placeholder="Enter account number or ID"/>
+        <br />
+        <br />
+        <p>Amount</p>
+        <input type="number" name="amount" placeholder="Enter amount" />
+        <br />
+        <br />
+        <p>Description</p>
+        <input type="text" name="description" placeholder="Description" />
+        <br/>
+        <br/>
+        <p>PIN</p>
+        <input type="password" name="pin" placeholder="Enter PIN"/>
+        <br/>
+        <br/>
+        <button type="submit">WITHDRAW</button>
+      </form>
+    </div>
+
+    <div>
+        {% if acct_query %}
+        <a href="#">{{acct_query}}</a>
+        {% endif %}
+    </div>    
+  </div>
+</div>
+
+{% endblock content %}

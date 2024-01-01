@@ -1,0 +1,80 @@
+{% extends 'partials/base.html' %} {% block content %}
+<div class="step2-parent">
+  <div class="step2">
+    <h3 style=" font-weight:900;">Confirm Your Transfer</h3>
+    <hr />
+    <small style="margin: 10px 0">Step 2 of 2</small>
+    {% include 'partials/messages.html' %}
+    <p style="margin: 20px 0"><strong>Edit Recipient</strong></p>
+
+    <div class="step2child1" id="blur">
+      <div class="div1">
+        <img src="{{receiver.image.url}}" alt="profile" />
+      </div>
+      <div class="div2">
+        <p>{{receiver.full_name}}</p>
+        <p><strong>{{dest_account.account_number}}</strong></p>
+        <small>{{receiver.user.email}}</small>
+      </div>
+
+
+      <div class="edit">
+        <a href="{% url 'core:transfer1' %}"><strong>Edit</strong></a>
+      </div>
+    </div>
+
+    <form class="step2child2" action="{% url 'core:transfer2' dest_account.id %}"
+      method="POST" >
+      {% csrf_token %}
+      <small style="margin-top: 15px">You send</small>
+      <input type="number" name="amount" placeholder="input amount to transfer"/>
+
+      <small
+        >Available balance: &#x20A6;{{user_acct.account_balance}}</small>
+      <small style="margin-top: 15px">Payment Description</small>
+
+      <input type="text" name="description" placeholder="transfer description"/>
+
+      <a class="button" href="#pin-confirmation-modal" onclick="toggle()" class="button"
+        >Continue</a
+      >
+
+      <!--==== MODAL POPUP =====-->
+      <!--==== MODAL POPUP =====-->
+      <!--==== MODAL POPUP =====-->
+      <div id="pin-confirmation-modal">
+        <a href="#" onclick="toggle()" class="close">x</a>
+        <br />
+        <input type="password" name="pin" placeholder="Enter Your PIN" />
+        <br />
+        <br />
+        <button class="confirm-trf" type="submit">Confirm Transfer</button>
+      </div>
+
+      
+    </form>
+    <br />
+
+    <div class="c5">
+      <a href="{% url 'core:transfer1' %}">Previous Step</a>
+    </div>
+    <!--<div class="step2child3">
+      <div class="gc1">
+        <small>Total fees</small>
+      </div>
+      <div class="gc2">
+        <small>Fee</small>
+      </div>
+
+      <div class="gc3">
+        <h3>Amount</h3>
+      </div>
+      <div class="gc4">
+        <p><strong>#37777</strong></p>
+      </div>
+    </div>-->
+  </div>
+</div>
+
+
+{% endblock content %}

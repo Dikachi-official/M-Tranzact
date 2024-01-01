@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>base</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="important-notice">
+        <p style="color: rgb(224, 141, 25)">
+          <strong>Important Notice: </strong>
+        </p>
+        <p>
+          <small>
+            Please be careful of fradulent parties posing as Mykes Bank or its
+            affliates. Do not disclose your personal information and financial
+            details to anyone online or anywhere else
+          </small>
+        </p>
+      </div>
+
+      <!--====== ALERTS SECTION ======-->
+      <div>{% include "partials/messages.html" %}</div>
+
+      <div class="nav-container">
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+          <div class="nav-first">
+            <nav>
+              <ul>
+                <li>
+                  Option &#x203A;
+                  <div class="sub-menu-1">
+                    <ul>
+                      <li><a href="#">services</a></li>
+                      <li><a href="{% url 'core:dashboard' %}">Kyc</a></li>
+                      <li><a href="#">Links</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  Online Banking &#x203A;
+                  <div class="sub-menu-1">
+                    <ul>
+                      <li>
+                        <a href="{% url 'core:dashboard' %}">Dashboard</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    style="text-decoration: none; color: white"
+                    href="{% url 'core:support' %}"
+                    >Help-Centre</a
+                  >
+                </li>
+                <li>
+                  Account &#x203A;
+                  <div class="sub-menu-1">
+                    <ul>
+                      <li>
+                        <a href="{% url 'userauth:signup' %}">Register</a>
+                      </li>
+                      <li><a href="{% url 'userauth:signin' %}">Login</a></li>
+                      {% if request.user.is_authenticated %}
+                      <li><a href="{% url 'userauth:signout' %}">Logout</a></li>
+                      {% endif %}
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="logo-container">
+            <img
+              style="width: 35px; height: 35px; border-radius: 50%"
+              src="{% static 'img/myke.jpg' %}"
+            />
+          </div>
+          <div class="nav-second">
+            <nav>
+              <div style="width: 80%">
+                <ul>
+                  <li>Personal</li>
+                  <li>Business</li>
+                  <li>Investor Relations</li>
+                  <li>
+                    <a
+                      style="text-decoration: none; color: white"
+                      href="{% url 'userauth:signup' %}"
+                      >Open account &#x203A;</a
+                    >
+                    <div class="sub-menu-1">
+                      <ul>
+                        <li>
+                          <a href="{% url 'userauth:signup' %}">Register</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--==== END OF HEADER SECTION ====-->
+
+    <!--==== MAIN PAGE SECTION OR INDEX.HTML LAYOUT =====-->
+    <div class="main-background">
+      <div class="write-up">
+        <h3>Yesterday, Today and Tomorrow</h3>
+        <small>
+          For life's choices and changes, we're by your side with help and
+          guidance. Quickly and easily send receive money online with us. Get a
+          customized solution to fit your business needs.
+        </small>
+        <br />
+        <button
+          class="write-up-btn"
+          style="
+            background-color: rgb(255, 98, 0);
+            cursor: pointer;
+            color: white;
+            padding: 8px;
+            margin: 7px 0;
+            border: none;
+          "
+        >
+          <a
+            style="text-decoration: none; color: white"
+            href="{% url 'userauth:signup' %}"
+            >Open Account →</a
+          >
+        </button>
+      </div>
+      <div class="write-up2">
+        <p class="write-up-p" style="width: 100%; padding: 10px">
+          <strong>Online Banking</strong>
+        </p>
+        <p class="write-up-p1" style="color: rgb(255, 98, 0); margin: 10px 0">
+          Personal
+        </p>
+        <button
+          style="
+            background-color: rgb(255, 98, 0);
+            cursor: pointer;
+            color: white;
+            width: 90%;
+            padding: 10px;
+            margin: 7px 0;
+            border: none;
+          "
+        >
+          <a
+            style="color: white; text-decoration: none"
+            href="{% url 'userauth:signin' %}"
+            >Login</a
+          >
+        </button>
+      </div>
+    </div>
+    <section style="margin-top: 30px">
+      <div style="text-align: center">
+        <h2 style="border-bottom: 3px solid rgb(255, 98, 0)">
+          Innovative Banking
+        </h2>
+        <small>
+          Tailored to your lifestyle, designed for your personal and business
+          needs
+        </small>
+      </div>
+      <div class="innovative-banking">
+        <div class="inno-bank-child">
+          <img src="{% static 'img/banking8.jpg' %}" alt="advert" />
+          <div
+            style="
+              background: rgb(255, 98, 0);
+              height: 5px;
+              width: 90%;
+              margin: 5px auto;
+            "
+          ></div>
+          <p>
+            <strong>Deposit-Withdraw-Transfer</strong>
+            <br />
+            <small>Make deposits and withdrawals with ease, straight from our site</small>
+          </p>
+        </div>
+        <div class="inno-bank-child">
+          <img src="{% static 'img/Bt48xobIcAAxbKU.jpg' %}" alt="advert" />
+          <div
+            style="
+              background: rgb(255, 98, 0);
+              height: 5px;
+              width: 90%;
+              margin: 5px auto;
+            "
+          ></div>
+          <p>
+            <strong>Saving for the future is possible. Open An Account Today</strong>
+            <br />
+            <small> Open an account with us with blazing speed, just regiser and undergo KYC.
+              And get your account running in no time.
+            </small>
+          </p>
+        </div>
+        <div class="inno-bank-child">
+          <img src="{% static 'img/banking7.jpg' %}" alt="advert" />
+          <div
+            style="
+              background: rgb(255, 98, 0);
+              height: 5px;
+              width: 90%;
+              margin: 5px auto;
+            "
+          ></div>
+          <p>
+            <strong>ECS - Life Just Got Easier</strong>
+            <br />
+            <small>
+               Stack up and pay your bills, school fees, and other dues at your own pace, easily using our electronic clearance service.
+            </small>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad2-section">
+      <h3 style="text-align: center; font-weight: 800">Our Initiative</h4>
+      <div class="initiatives-sec">
+        <div class="inno-bank-child1">
+          <img src="{% static 'img/istudents.jpeg' %}" alt="advert" />
+          <div
+            style="
+              background: rgb(255, 98, 0);
+              height: 5px;
+              width: 90%;
+              margin: 5px auto;
+            "
+          ></div>
+          <p>
+            <strong>Skill Acquisition Programs and Seminars - The Digital Experience</strong>
+            <br />
+            <small
+              >Skill acquisition, loans to customers and other services for financial stability</small
+            >
+          </p>
+        </div>
+        <div class="inno-bank-child">
+          <img src="{% static 'img/banking3.jpg' %}" alt="advert" />
+          <div
+            style="
+              background: rgb(255, 98, 0);
+              height: 5px;
+              width: 90%;
+              margin: 5px auto;
+            "
+          ></div>
+          <p>
+            <strong>The Platform to make wealth - The Digital Experience</strong>
+            <br />
+            <small
+              >Receieving foreign funds is also a possibility with us.</small
+            >
+          </p>
+        </div>
+        <div class="inno-bank-child2">
+          <img src="{% static 'img/CBGO.jpg' %}" alt="advert" />
+          <div
+            style="
+              background: rgb(255, 98, 0);
+              height: 5px;
+              width: 90%;
+              margin: 5px auto;
+            "
+          ></div>
+          <p>
+            <strong>Going Beyond - The Digital Experience</strong>
+            <br />
+            <small
+              >Our forecast and opinion on the broad macroeconomic and banking
+              sector trends</small
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="myke-connect">
+      <h3 style="color: white">MYKE-CONNECT</h3>
+      <small style="color: rgb(255, 98, 0)">24 hour Contact Centre</small>
+    </div>
+
+    <!--======= SHOULD BE A CONTENT OF BASE.HTML =======-->
+    <!--==== FOOTER SECTION ====-->
+    <!--==== FOOTER SECTION ====-->
+    <!--==== FOOTER SECTION ====-->
+    <!--==== FOOTER SECTION ====-->
+
+    <footer class="footer">
+      <div class="footercontainer">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Backend Tools</h4>
+            <ul>
+              <li><a href="#">Python</a></li>
+              <li><a href="#">Django</a></li>
+              <li><a href="#">DRF</a></li>
+              <li><a href="#">Postgres</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Frontend Tools</h4>
+            <ul>
+              <li><a href="#">HTML</a></li>
+              <li><a href="#">CSS</a></li>
+              <li><a href="#">JS</a></li>
+              <li><a href="#">BOOTSTRAP</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Projects</h4>
+            <ul>
+              <li><a href="#">Ecommerce</a></li>
+              <li><a href="#">Blog Site</a></li>
+              <li><a href="#">Crypto NFT Site</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>About Me</h4>
+            <div class="social-links">
+              <a href="#">github icon</a>
+              <a href="#">Gmail icon</a>
+              <a href="#">LinkedIn icon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="line"></div>
+    </footer>
+
+    <!--==== END OF FOOTER SECTION ====-->
+    <!--==== END OF FOOTER SECTION ====-->
+    <!--==== END OF FOOTER SECTION ====-->
+    <!--==== END OF FOOTER SECTION ====-->
+  </body>
+  <script>
+    hamburger = document.querySelector(".hamburger");
+    hamburger.onclick = function () {
+      navBar = document.querySelector(".nav-bar");
+      navBar.classList.toggle("active");
+    };
+  </script>
+</html>

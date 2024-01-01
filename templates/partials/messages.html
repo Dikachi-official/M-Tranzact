@@ -1,0 +1,19 @@
+{% for message in messages%}
+<!--=FOR EVERY MESSAGE IN OUT ERROR MESSAGES IN VIEWS, EFFECT SHOULD BE TAKEN IN THIS FORM==-->
+<div
+  style="color: white; background:grey;padding:10px; width:85%; margin:5px auto;"
+  id="messages"
+  class="alert alert-{{message.tags}} alert-dismissible fade show"
+  role="alert"
+>
+  {{ message}}
+</div>
+{% endfor %}
+
+<script>
+  /*----==== JQUERY FOR ALERT SIGNUP MESSAGE ====----*/
+  var message_timeout = document.getElementById("messages");
+  setTimeout(function () {
+    message_timeout.style.display = "none";
+  }, 3000);
+</script>

@@ -1,0 +1,84 @@
+{% extends 'partials/base.html' %} {% block content %}
+
+<div class="step3-parent">
+  <div class="step3">
+    <h3 style="margin: 10px 0">Confirm Your Transfer</h3>
+    <hr />
+    <small style="margin: 10px 0">Step 3 of 3</small>
+
+    <div class="step3child1">
+      <div>
+        <img src="" alt="profile" />
+      </div>
+      <div>
+        <p><strong>{{Charles gbenga}}</strong></p>
+        <br />
+        <p><strong>{{3763681381}}</strong></p>
+        <small>charlesgbenga@gmail.com</small>
+      </div>
+      <div class="edit-p">
+        <a href="{% url 'core:transfer1' %}"><strong>Edit</strong></a>
+      </div>
+    </div>
+
+    <div class="step3child2">
+      <div class="step3child2-h">
+        <div class="pay-det">
+          <h3 style="margin: 15px 0">Payment Details</h3>
+        </div>
+        <div class="edit-h">
+          <a href=""><strong>Edit</strong></a>
+        </div>
+      </div>
+      <hr />
+
+      <div class="step3g-child1">
+        <form
+          action="{% url 'core:transfer3' myacct.account_id account.account_id %}"
+          method="POST"
+        >
+          {% csrf_token %}
+          <div class="step3ggc1">
+            <p>You Send</p>
+          </div>
+          <div class="step3ggc2">
+            <input type="number" name="amount" />
+          </div>
+
+          <div class="step3ggc1">
+            <p>Your balance</p>
+          </div>
+          <div class="step3ggc2">
+            <p>{{user_acct.account_balance}}</p>
+          </div>
+
+          <div class="step3ggc1">
+            <p>Recipient email</p>
+          </div>
+          <div class="step3ggc2">
+            <strong><p>{{receiver.user.email}}</p></strong>
+          </div>
+
+          <div class="step3ggc1">
+            <p>Fee</p>
+          </div>
+          <div class="step3ggc2">
+            <strong><p>Free</p></strong>
+          </div>
+
+          <div class="step3ggc1">
+            <p>Description</p>
+          </div>
+          <div class="step3ggc2">
+            <input type="text" name="description" />
+          </div>
+
+          <button type="submit">SEND</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

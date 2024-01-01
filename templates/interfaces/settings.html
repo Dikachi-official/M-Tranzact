@@ -1,0 +1,140 @@
+{% extends 'partials/base.html' %} 
+{% load static %} 
+{% block content %}
+<!--==== WIDE SECTION  ====-->
+
+<div class="main-sec-as3">
+  <div style="text-align: center">{% include "partials/messages.html" %}</div>
+  <div class="settings-container">
+    <div class="settings-container1">
+      <h1>Settings</h1>
+      <hr />
+      <ul>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#security-password">Security</a></li>
+        <li><a href="#notification-settings">Notifications</a></li>
+      </ul>
+    </div>
+    <div class="settings-container2">
+      <div style="width: 100%">
+        <p><strong>Profile Settings</strong></p>
+        <div class="img-set-1">
+          <img src="{{user_kyc.image.url}}" alt="profile-pic" />
+        </div>
+
+        <!--=====  CHANGE PROFILE DETAIL  =====-->
+        <div style="width: 100%; margin: 20px 0px">
+          {% if form.errors %}
+          <div class="settings-errors">
+            <p><strong>{{form.errors}}</strong></p>
+            <br />
+          </div>
+          {% endif %}
+          <form
+            class="wide-sec-form"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+
+            <div class="wide-div">
+              <label>Full Name</label>
+              <br />
+              {{form.full_name}}
+            </div>
+
+            <div class="wide-div">
+              <label>Mobile</label>
+              <br />
+              {{form.mobile}}
+            </div>
+
+            <div class="wide-div">
+              <label>Date of Birth</label>
+              <br />
+              {{form.date_of_birth}}
+            </div>
+
+            <div class="wide-div">
+              <label>Gender</label>
+              <br />
+              {{form.gender}}
+            </div>
+
+            <div class="wide-div">
+              <label>Marital</label>
+              <br />
+              {{form.marital_status}}
+            </div>
+
+            <div class="wide-div">
+              <label>Country</label>
+              <br />
+              {{form.country}}
+            </div>
+
+            <div class="wide-div">
+              <label>State</label>
+              <br />
+              {{form.state}}
+            </div>
+
+            <div style="height:50px;" class="wide-div">
+              <label>City</label>
+              <br />
+              {{form.city}}
+            </div>
+
+            <div class="wide-div">
+              <label>Select Identity Type</label>
+              <br />
+              {{form.id_select}} {{form.id_card}}
+              <img src="{{form.instance.id_card.url}}" alt="Image"/>
+            </div>
+
+            <div class="wide-div">
+              <label>Select Identity Image</label>
+              <br />
+              {{form.image}}
+              <img src="{{form.instance.image.url}}" alt="Image"/>
+            </div>
+
+            <div class="wide-div">
+              <label>Select Signature Image</label>
+              <br />
+              {{form.signature}}
+              <img src="{{form.instance.signature.url}}" alt="Image"/>
+            </div>
+
+            <button type="submit">SUBMIT CHANGES</button>
+          </form>
+        </div>
+      </div>
+      <br />
+
+      <div class="change-pass-cont">
+        <p style="background: white; padding: 10px" id="security-password">
+          <strong>Security</strong>
+        </p>
+        <br />
+        <a class="changepassbtn" href="{% url 'userauth:change-password' %}"
+          >Change Password</a
+        >
+      </div>
+      <br/>
+      <hr/>
+      <br/>
+
+      <!--===== NOTIFICATION SETTINGS ====-->
+      <div class="change-pass-cont">
+        <p style="background: white; padding: 10px; text-align:center;" id="notification-settings">
+          <strong>Notifications Settings</strong>
+        </p>
+        <br />
+        <a class="changepassbtn" href="#">Mute Notifications</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

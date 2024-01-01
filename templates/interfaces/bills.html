@@ -1,0 +1,51 @@
+{% extends 'partials/base.html' %} {% load static %} {% block content %}
+
+<div class="main-sec-as1">
+  <div class="ecs-parent">
+    <h1><strong>Bills</strong></h1>
+    <hr />
+    <div style="text-align: center; font-weight: 600">
+      {% include 'partials/messages.html' %}
+    </div>
+    <div style="background: white" class="cont-table-sect2">
+      <div class="table-sect">
+        <table>
+          <thead>
+            <tr>
+              <th>Bill id</th>
+              <th>Services</th>
+              <th>Recipient</th>
+              <th>Amount</th>
+              <th>Account Number</th>
+              <th>Paid Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          {% for ecs in ecs %}
+          <tbody>
+            <tr>
+              <td>{{ecs.ecs_id|truncatechars:7}}</td>
+              <td>{{ecs.payer}}</td>
+              <td>{{ecs.account.user}}</td>
+              <td>&#x20A6;{{ecs.upper_limit|truncatechars:10}}</td>
+              <td>{{ecs.account.account_number}}</td>
+              {% if bills %} {% for bill in bills %}
+              <td>{{bill.completed}}</td>
+              {% endfor %} {% else %}
+              <td></td>
+              {% endif %}
+              <td>
+                <br />
+                <a href="{% url 'account:pay-bills' ecs.ecs_id %}">Pay Bill</a>
+                <br />
+              </td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

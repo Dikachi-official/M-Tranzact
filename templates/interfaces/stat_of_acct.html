@@ -1,0 +1,104 @@
+{% extends 'partials/base.html' %} {% load static %} {% block content %}
+<div class="stat_acct_cont">
+  <h3>Statment of account for {{user_kyc.full_name}}</h3>
+  <hr />
+  <div class="cont-table-sect">
+    {% if transactions %}
+    <p style="font-weight: 800">All Transactions for {{user_kyc.full_name}}</p>
+    <h3 style="text-align: left; color: white; background:rgb(227, 103, 27); padding:10px; width:auto; margin:5px 0;">
+      Sent transactions
+    </h3>
+    <div class="table-sect">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th></th>
+            <th>Recipient</th>
+            <th>Action</th>
+            <th>Status</th>
+            <th>Amount</th>
+            <th>description</th>
+            <th>date</th>
+            <th>Reveal</th>
+          </tr>
+        </thead>
+        {% for transaction in transactions %}
+        <tbody>
+          <tr>
+            <td>{{transaction.id|truncatechars:6}}</td>
+            <td></td>
+            <td>{{transaction.receiver}}</td>
+            <td>{{transaction.transfer_type}}</td>
+            <td>{{transaction.status}}</td>
+            <td>&#x20A6;{{transaction.amount|truncatechars:10}}</td>
+            <td>{{transaction.description}}</td>
+            <td>{{transaction.date|truncatechars:11}}</td>
+            <td style="margin:5px 0;">
+              <br/>
+              <a href="{% url 'account:statement' transaction.id %}">view</a>
+              <br/>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+    {% else %}
+    <div class="table-sect">
+      <p>Nothing to show</p>
+    </div>
+    {% endif %}
+
+    <!---==== RECEIVED TRANSACTIONS ====-->
+    <!---==== RECEIVED TRANSACTIONS ====-->
+    <!---==== RECEIVED TRANSACTIONS ====-->
+    <hr />
+    <br />
+    {% if received_transactions %}
+    <h3 style="text-align: left; color: white; background:rgb(227, 103, 27); padding:10px; width:auto; margin:5px 0;">Received transactions</h3>
+    <div class="table-sect">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th></th>
+            <th>From</th>
+            <th>Action</th>
+            <th>Status</th>
+            <th>Amount</th>
+            <th>description</th>
+            <th>date</th>
+            <th>Reveal</th>
+          </tr>
+        </thead>
+        {% for transaction in received_transactions %}
+        <tbody>
+          <tr>
+            <td>{{transaction.id|truncatechars:6}}</td>
+            <td></td>
+            <td>{{transaction.user.username}}</td>
+            <td>{{transaction.transfer_type}}</td>
+            <td>{{transaction.status}}</td>
+            <td>&#x20A6;{{transaction.amount|truncatechars:10}}</td>
+            <td>{{transaction.description}}</td>
+            <td>{{transaction.date|truncatechars:11}}</td>
+            <td>
+              <br/>
+              <a href="{% url 'account:statement' transaction.id %}">view</a>
+              <br/>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+    {% else %}
+    <div class="table-sect">
+      <p>Nothing to show for received transactions</p>
+    </div>
+    {% endif %}
+  </div>
+  
+</div>
+{% endblock content %}
