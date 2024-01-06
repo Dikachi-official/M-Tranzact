@@ -1,0 +1,20 @@
+{% extends 'partials/base-home.html' %} 
+{% load static %} 
+{% block content %}
+{% include 'partials/messages.html' %}
+
+<form action="" method="POST" class="verify-token-form">
+  {% csrf_token %}
+  <h3><strong>Verify Email</strong></h3>
+  <div class="verify-token-child">
+    <label class="form-label">OTP</label>
+    <input class="form-control" name="otp_code" placeholder="Enter OTP" />
+  </div>
+
+  <button class="btn btn-primary" style="width: 100%">Activate Account</button>
+  <p>
+    Need a new OTP? <a href="{% url 'userauth:resend-otp' %}">Resend OTP</a>
+  </p>
+</form>
+
+{% endblock content %}

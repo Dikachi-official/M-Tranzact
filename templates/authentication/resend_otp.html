@@ -1,0 +1,20 @@
+{% extends 'partials/base-home.html' %} 
+{% load static %} 
+{% block content %}
+{% include 'partials/messages.html' %}
+
+<form action="" method='POST' class="verify-token-form">
+    {% csrf_token %}
+    <h3><strong>Resend OTP</strong></h3>
+    <div class="verify-token-child">
+        <label class="form-label">Email Address</label>
+        <br/>
+        <input type="email" class="form-control" name="otp_email" placeholder="Enter email-address">
+      </div>
+
+      <button>Send OTP</button>
+      {% comment %} <p>Need a new OTP? <a href="">Resend OTP</a></p> {% endcomment %}
+
+</form>
+
+{% endblock content %}

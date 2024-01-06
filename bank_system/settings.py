@@ -175,10 +175,12 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 #EMAIL
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER ='banktestapptest@gmail.com'
-EMAIL_HOST_PASSWORD ='sztnwvdmxqzbvwot'
+EMAIL_PORT = 465
+EMAIL_HOST_USER ='djangotest54@gmail.com'
+EMAIL_HOST_PASSWORD ='wxeg tqbu pedo onat'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
 
 
 

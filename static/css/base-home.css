@@ -273,6 +273,65 @@
 
 
 
+/*--==== VERIFY-TOKEN SECTION ====--*/
+/*--==== VERIFY-TOKEN SECTION ====--*/
+/*--==== VERIFY-TOKEN SECTION ====--*/
+
+
+.verify-token-form{
+    width: 500px;
+    height: auto;
+    padding: 20px 20px 20px 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+.verify-token-form p{
+    text-align: center;
+}
+
+.verify-token-form h3{
+    text-align: center
+}
+
+.verify-token-form input{
+    height:35px;
+    width:95%;
+    border:1px solid black;
+}
+
+.verify-token-form .verify-token-child{
+    padding:10px;
+    margin:20px 0;
+}
+
+.verify-token-form button{
+    padding:5px;
+    color:white;
+    background:rgb(255, 98, 0);
+    border:none;
+    margin:2px auto;
+    text-align:center;
+    width:95%;
+    cursor:pointer;
+}
+
+.verify-token-form button:hover{
+    background:#563434;   
+}
+
+
+
+
+/*--==== END OF VERIFY-TOKEN SECTION ====--*/
+/*--==== END OF VERIFY-TOKEN SECTION ====--*/
+/*--==== END OF VERIFY-TOKEN SECTION ====--*/
+
+
+
+
+
+
 
 
 

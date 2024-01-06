@@ -15,7 +15,8 @@ urlpatterns = [
     path('signout', views.logout, name='signout'),
 
     #EMAIL ACTIVATION VERIFICATION
-    path('activate/<uidb64>/<token>', views.activate, name='activate'),
+    path("verify-email/<slug:username>", views.verify_email, name="verify-email"),
+    path("resend-otp", views.resend_otp, name="resend-otp"),
 
     #CHANGE PASSWORD
     path('changepassword/', views.change_password, name='change-password'),

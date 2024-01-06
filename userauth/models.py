@@ -6,6 +6,7 @@ from django.db.models.signals import post_save, post_delete
 import uuid  # TO USE UUID
 from shortuuid.django_fields import ShortUUIDField
 from django.db.models.signals import post_save
+import secrets
 
 
 # Create your models here.
@@ -29,7 +30,22 @@ class User(AbstractUser, PermissionsMixin):
     def __str__(self):
         return self.username
     
+
+
+#OTP Model
+class OtpToken(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="otps")
+    otp_code = models.CharField(max_length=6, default=secrets.token_hex(3))
+    otp_created_at = models.DateTimeField(auto_now_add=True)
+    otp_expires_at = models.DateTimeField(blank=True, null=True)
     
+    
+    def __str__(self):
+        return self.user.username
+    
+    
+
+# Customer Support Model
 class Support(models.Model):
     full_name = models.CharField(max_length=200)
     email = models.EmailField()
