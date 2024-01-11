@@ -18,4 +18,5 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(User)
 admin.site.register(Support)
+admin.site.register(OtpToken)
 
