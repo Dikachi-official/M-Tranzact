@@ -507,13 +507,10 @@ def withdraw(request):
 def transfer_success(request):
     #CHECKING IF USER EXISTS IN GROUP
     if request.user.groups.filter(name = "Kyc_Registered").exists(): 
-     
-
-
 
         try:
-                user_kyc = Kyc.objects.get(user=request.user)
-                user_acct = Account.objects.get(user=request.user)
+            user_kyc = Kyc.objects.get(user=request.user)
+            user_acct = Account.objects.get(user=request.user)
 
         except:
             user_kyc = None
