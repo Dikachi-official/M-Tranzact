@@ -1,7 +1,7 @@
-<h1>Fintech Site</h1>
+<h1>M-Tranzact</h1>
 
 <h3>About</h3>
-Built with Python & Django framework for the backend. And HTML & CSS for the Frontend, Where a users can Register and be authenticated to their respective dashboards, complete KYC to be able to perform several transactions like (Deposit, Transfer, Withdraw & Electronic Clearance Services)
+A Fintech site built with Python & Django framework for the backend. And HTML & CSS for the Frontend, Where a users can Register and be authenticated to their respective dashboards, complete KYC to be able to perform several transactions like (Deposit, Transfer, Withdraw & Electronic Clearance Services)
 
 ## Backend development workflow
 
