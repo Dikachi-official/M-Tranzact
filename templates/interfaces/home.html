@@ -66,12 +66,13 @@
                   Account &#x203A;
                   <div class="sub-menu-1">
                     <ul>
+                      {% if request.user.is_authenticated %}
+                      <li><a href="{% url 'userauth:signout' %}">Logout</a></li>
+                      {% else %}
                       <li>
                         <a href="{% url 'userauth:signup' %}">Register</a>
                       </li>
                       <li><a href="{% url 'userauth:signin' %}">Login</a></li>
-                      {% if request.user.is_authenticated %}
-                      <li><a href="{% url 'userauth:signout' %}">Logout</a></li>
                       {% endif %}
                     </ul>
                   </div>
@@ -209,7 +210,7 @@
           <p>
             <strong>Saving for the future is possible. Open An Account Today</strong>
             <br />
-            <small> Open an account with us with blazing speed, just regiser and undergo KYC.
+            <small> Open an account with us with blazing speed, just register and undergo KYC.
               And get your account running in no time.
             </small>
           </p>
