@@ -150,7 +150,7 @@ def dashboard(request):
 
 
 
-#TO DELETE ACCOUNT
+#TO DELETE USER ACCOUNT
 @login_required
 def delete_acct(request, id):
     account = get_object_or_404(Account, account_id=id, user=request.user)
